@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "Search",
+  "description": "It can change the default search engine of the browser to the jsweibo's search",
+  "version": "1.0.0",
+  "icons": {
+    "64": "icons/icon.png"
+  },
+  "background": {
+    "scripts": ["js/default-settings.js", "background_script.js"]
+  },
+  "browser_action": {
+    "default_title": "Open Options"
+  },
+  "options_ui": {
+    "page": "options/index.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "unlimitedStorage",
+    "contextMenus",
+    "downloads"
+  ],
+  "web_accessible_resources": ["search/index.html"],
+  "chrome_settings_overrides": {
+    "search_provider": {
+      "name": "jsweibo's search",
+      "keyword": "j",
+      "encoding": "UTF-8",
+      "favicon_url": "https://jsweibo.github.io/search/favicon.png",
+      "search_url": "https://jsweibo.github.io/search/?q={searchTerms}",
+      "suggest_url": "https://suggestion.baidu.com/su?action=opensearch&wd={searchTerms}",
+      "is_default": true
+    }
+  }
+}
